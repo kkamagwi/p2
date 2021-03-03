@@ -1,0 +1,52 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    {% block title %}{% endblock title %}
+  </title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  {% block css %}{% endblock css %}
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-dark bg-light px-sm-5">
+  <a class="navbar-brand text-white font-weight-bold" href="#">Katya</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse font-weight-bold" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+ 
+      {% if not request.user.is_authenticated %}
+        <li class="nav-item text-white">
+          <a class="nav-link text-white" href="{% url 'login-page' %}">{% trans 'Login' %}<span class="sr-only">(current)</span></a>
+        </li>
+        <li>
+          <a class="nav-link text-white" href="{% url 'register-page' %}">{% trans 'Register' %}</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'logout-page' %}">{% trans 'Logout' %}<span class="sr-only">(current)</span></a>
+        </li>
+      {% endif %}
+   
+          
+    
+    </ul>
+  </div>
+</nav>
+{% block content %}{% endblock content %}
+<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/infinite.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+{% block js %}{% endblock js %}
+</body>
+</html>

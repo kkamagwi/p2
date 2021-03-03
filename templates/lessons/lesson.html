@@ -1,0 +1,4 @@
+{% load markdown_extras %}
+{%for lesson in lessons%}
+<a href="{% url 'detail' slug=lesson.slug %}">{{lesson.title | markdown | safe }}</a>
+{%endfor%}

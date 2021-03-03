@@ -1,0 +1,24 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ lesson.title }}{% endblock %}
+
+{% block content %}
+
+{% load markdown_extras %}
+
+<h1 align="center">{{lesson.title | markdown | safe }}</h1>
+{%for segment in ls%}
+<h3>{{segment.title | markdown | safe }}</h3>
+<div class="segment">{{segment.content|safe }}</div>
+{% endfor %}
+
+<div><h3>Домашнее задание</h3>
+
+</div>
+
+{%for segment in hw%}
+<h4>{{segment.title | markdown | safe }}</h4>
+<div class="segment">{{segment.content|safe }}</div>
+{% endfor %}
+{% endblock %}
