@@ -86,7 +86,8 @@ DATABASES = {
         'NAME': 'd8jl8luu9smflj',
         'USER': 'gamitusctblmtr',
         'PASSWORD': '78a7f10bb8591020ecb17869ebf6d9500e1558ed38c81c0f2350199d17e3fe9a',
-        'HOST': 'ec2-99-80-200-225.eu-west-1.compute.amazonaws.com:5432',
+        'HOST': 'ec2-99-80-200-225.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
