@@ -79,9 +79,14 @@ WSGI_APPLICATION = 'platform2.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+    'default': 
+    {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'academy',
+        'USER': 'academy_user',
+        'PASSWORD': 'academy_pass',
+        'HOST': '127.0.0.1',
     }
 }
 
@@ -123,3 +128,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
