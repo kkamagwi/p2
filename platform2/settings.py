@@ -83,10 +83,10 @@ DATABASES = {
     'default': 
     {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'academy',
-        'USER': 'academy_user',
-        'PASSWORD': 'academy_pass',
-        'HOST': '127.0.0.1',
+        'NAME': 'd8jl8luu9smflj',
+        'USER': 'gamitusctblmtr',
+        'PASSWORD': '78a7f10bb8591020ecb17869ebf6d9500e1558ed38c81c0f2350199d17e3fe9a',
+        'HOST': 'ec2-99-80-200-225.eu-west-1.compute.amazonaws.com:5432',
     }
 }
 
