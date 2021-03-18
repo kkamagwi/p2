@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <label>Введите номер сегмента</label><br>
+        <input type="text" name="order" value="{{ls.order}}" />
+    </p>
+    <p>
+        <label>Введите название сегмента</label><br>
+        <input type="text" name="title" value="{{ls.title}}" />
+    </p>
+    <p>
+        <label>Введите содержимое сегмента</label><br>
+        <input type="text" name="content" value="{{ls.content}}" />
+    </p>
+    <input type="submit" value="Сохранить" >
+</form>
+
+{% endblock %}

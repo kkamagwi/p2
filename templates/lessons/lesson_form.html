@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>{{lesson.title}}</h1>
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ myform.media }}
+        {% for field in form.visible_fields %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+    </div>
+    {% endfor %}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+    {%for segment in ls%}
+
+    {{segment.order | safe }} 
+    <a href="{% url 'lessons:ls-update' segment.id %}">Изменить</a> 
+| <a href="delete/{{lesson.id}}">Удалить</a>  
+<fonts color='red'>{{segment.title }}</fonts>
+<details>
+<div class="segment">{{segment.content|safe }}</div>
+</details>
+
+{% endfor %}
+
+{% endblock %}

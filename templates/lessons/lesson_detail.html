@@ -9,7 +9,7 @@
 
 <h1 align="center">{{lesson.title | markdown | safe }}</h1>
 {%for segment in ls%}
-<h3>{{segment.title | markdown | safe }}</h3>
+<h3>{{segment.title | safe }}</h3>
 <div class="segment">{{segment.content|safe }}</div>
 {% endfor %}
 

@@ -1,4 +1,15 @@
+
+{% extends "base.html" %}
 {% load markdown_extras %}
+{% block content %}
+<ul class="list-group">
 {%for lesson in lessons%}
-<a href="{% url 'detail' slug=lesson.slug %}">{{lesson.title | markdown | safe }}</a>
+<li class="list-group-item">
+    
+    <a href="{% url 'lessons:lesson-details' slug=lesson.slug %}" > Урок №{{lesson.order}}
+        {{lesson.title | safe }}
+    </a>
+</li>
 {%endfor%}
+</ul>
+{% endblock %}
