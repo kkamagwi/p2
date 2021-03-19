@@ -6,7 +6,9 @@ from ckeditor.fields import RichTextField
 class Lesson(models.Model):
     order = models.IntegerField()
     title = models.CharField(max_length=127)
-    exersises = models.TextField(blank=True)
+    motivation = models.TextField(default='motivation is here')
+    refreshment = models.TextField(default='ferreshment is here')
+    reflection = models.TextField(default='reflection is here')
     slug = models.SlugField(blank=True)
 
     def __str__(self):
@@ -22,6 +24,8 @@ class LessonSegment(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     title = models.TextField()
     content = models.TextField()
+    hardskill = models.TextField(blank=True)
+    softskill = models.TextField(blank=True)
 
     def __str__(self):
         return self.title

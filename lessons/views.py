@@ -4,6 +4,9 @@ from .forms import LessonSegmentForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
+def index(request):
+    return render(request, 'index.html', )
+
 def lesson(request):
     lessons = Lesson.objects.all().order_by('order')
     return render(request, 'lessons/lesson.html', 

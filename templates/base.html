@@ -1,12 +1,14 @@
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>{% block title %}My amazing Python site{% endblock %}</title>
     <style>
         iframe {
-          width: 100%;
-          height: 500;
+            width: 100%;
+            height: 500;
         }
 
         img {
@@ -15,17 +17,17 @@
             margin-right: auto;
             width: 40%;
         }
-        
+
         h3 {
-          color: maroon;
-          margin-left: 40px;
-          text-align: center;
+            color: maroon;
+            margin-left: 40px;
+            text-align: center;
         }
 
         h4 {
-          color: rgb(46, 41, 41);
-          margin-left: 40px;
-          text-align: center;
+            color: rgb(46, 41, 41);
+            margin-left: 40px;
+            text-align: center;
         }
 
         .segment {
@@ -46,7 +48,7 @@
         }
 
         pre {
-            background-color:rgb(116, 236, 79);
+            background-color: rgb(116, 236, 79);
             padding: 5px;
             border-radius: 0.3em;
         }
@@ -67,7 +69,51 @@
             margin-left: auto;
             margin-right: auto;
         }
-        </style>
+
+        .navigation ul {
+            font: bold 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+        }
+
+        .navigation li {
+            display: inline-block;
+        }
+
+        .navigation a {
+            background: #395870;
+            background: linear-gradient(#49708f, #293f50);
+            border-right: 1px solid rgba(0, 0, 0, .3);
+            color: #fff;
+            padding: 12px 20px;
+            text-decoration: none;
+        }
+
+        .navigation a:hover {
+            background: #314b60;
+            box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, .3);
+        }
+
+        .navigation li:first-child a {
+            border-radius: 4px 0 0 4px;
+        }
+
+        .navigation li:last-child a {
+            border-right: 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .scale {
+            transition: 1s;
+            /* Время эффекта */
+        }
+
+        .scale:hover {
+            transform: scale(5);
+            /* Увеличиваем масштаб */
+        }
+    </style>
 </head>
 
 <body>
@@ -84,4 +130,5 @@
         {% block content %}{% endblock %}
     </div>
 </body>
+
 </html>
