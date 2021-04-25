@@ -1,9 +1,10 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from course.models import Course
 
 
 class Lesson(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True, default=1)
     order = models.IntegerField()
     title = models.CharField(max_length=127)
     motivation = models.TextField(default='motivation is here')
@@ -21,7 +22,7 @@ class Lesson(models.Model):
 
 class LessonSegment(models.Model):
     order = models.IntegerField()
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lesson, on_delete=models.SET_NULL, null=True)
     title = models.TextField()
     content = models.TextField()
     hardskill = models.TextField(blank=True)

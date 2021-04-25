@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'accounts',
     'lessons',
+    'course',
 ]
 
 MIDDLEWARE = [
@@ -83,6 +84,8 @@ WSGI_APPLICATION = 'platform2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+# pg_dump -Fc -h ec2-99-80-200-225.eu-west-1.compute.amazonaws.com -U gamitusctblmtr d8jl8luu9smflj -f pl22_04.dump
 
 DATABASES = {
 

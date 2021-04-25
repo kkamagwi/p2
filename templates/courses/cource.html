@@ -1,0 +1,15 @@
+
+{% extends "base.html" %}
+{% load markdown_extras %}
+{% block content %}
+<ul class="list-group">
+{%for corse in courses%}
+<li class="list-group-item">
+    
+    <a href="{% url 'course:course-details' slug=course.slug %}" >
+        {{course.title | safe }}
+    </a>
+</li>
+{%endfor%}
+</ul>
+{% endblock %}

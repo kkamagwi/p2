@@ -23,5 +23,5 @@ urlpatterns = [
     path('', index, name='index'),
     path('accounts/', include('accounts.urls')),
     path('lessons/', include('lessons.urls')),
-    
+    path('courses/', include('course.urls')),    
 ]
