@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ lesson.title }}{% endblock %}
+
+{% block content %}
+
+
+{% load markdown_extras %}
+{% for lesson in lessons %}
+<ul class="list-group"></ul>
+<li class="list-group-item">
+    <a href="{% url 'lessons:lesson-details' slug=lesson.slug %}"> Урок №{{lesson.order}}
+        {{lesson.title | safe }}</a>
+</li>
+
+{% for ls in lesson.ls_set.all %}
+<ul>
+    <li>{{ ls.title }}</li>
+</ul>
+
+{% endfor %}
+{% endfor %}
+
+
+
+{% endblock %}

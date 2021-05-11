@@ -20,9 +20,18 @@ class Lesson(models.Model):
         self.save()
 
 
+class lsTag(models.Model):
+    tag = models.CharField(max_length=127, blank=True)
+    details = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.tag
+
+
 class LessonSegment(models.Model):
     order = models.IntegerField()
-    lesson = models.ForeignKey(Lesson, on_delete=models.SET_NULL, null=True)
+    tag = models.ForeignKey(lsTag, on_delete=models.SET_NULL, related_name='tag_set', null=True)
+    lesson = models.ForeignKey(Lesson, on_delete=models.SET_NULL, null=True, related_name='ls_set')
     title = models.TextField()
     content = models.TextField()
     hardskill = models.TextField(blank=True)
@@ -30,6 +39,7 @@ class LessonSegment(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class HomeWork(models.Model):
     order = models.IntegerField(blank=True)
@@ -39,3 +49,4 @@ class HomeWork(models.Model):
 
     def __str__(self):
         return self.title
+

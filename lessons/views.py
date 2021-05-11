@@ -7,20 +7,29 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 def index(request):
     return render(request, 'index.html', )
 
+
 def lesson(request):
     lessons = Lesson.objects.all().order_by('order')
     return render(request, 'lessons/lesson.html', 
     {'lessons': lessons}
     )
 
+def thematic_plan(request):
+    # l1 = Lesson.objects.get(title="ООП")
+    # l1.ls_set.all()
+    lesson = Lesson.objects.all().order_by('order')
+    ls = LessonSegment.objects.all().order_by('order')
+    return render(request, 'lessons/thematic_plan.html', {'lessons': lesson, 'ls': ls})
+
 def lesson_details(request, slug):
-    lessons = Lesson.objects.get(slug=slug)
-    ls = LessonSegment.objects.filter(lesson=lessons.id).order_by('order')
-    hw = HomeWork.objects.filter(lesson=lessons.id).order_by('order')
-    return render(request, 'lessons/lesson_detail.html', {'lesson': lessons, 'ls':ls, 'hw': hw})
+    lesson = Lesson.objects.get(slug=slug)
+    ls = LessonSegment.objects.filter(lesson=lesson.id).order_by('order')
+    hw = HomeWork.objects.filter(lesson=lesson.id).order_by('order')
+    return render(request, 'lessons/lesson_detail.html', {'lesson': lesson, 'ls':ls, 'hw': hw})
 
 
 def lesson_form(request, slug):
+    # TODO выправить говнокод
     lesson = Lesson.objects.get(slug=slug)
     lessons = Lesson.objects.filter(slug=slug)
     form = LessonSegmentForm(request.POST)
@@ -30,6 +39,7 @@ def lesson_form(request, slug):
         lesson.save()
         return redirect('lessons:ls-add')
     return render(request, 'lessons/lesson_form.html', {'lessons': lessons, 'form': form, 'ls': ls})
+
 
 
 # class LessonSegmentCreate(CreateView):

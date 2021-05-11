@@ -12,3 +12,5 @@ class Course(models.Model):
     def slag(self):
         self.slag = self.title
         self.save()
+
+# TODO календарно тематический
