@@ -14,7 +14,7 @@
 <div class="segment">{{lesson.refreshment | markdown | safe }}</div>
 {%for segment in ls%}
 <h3>{{segment.title | safe }}</h3>
-<div class="segment">{{segment.content|safe }}</div>
+<div class="segment">{{segment.content | markdown | safe }}</div>
 {% endfor %}
 
 <!-- <div><h3>Домашнее задание</h3>
